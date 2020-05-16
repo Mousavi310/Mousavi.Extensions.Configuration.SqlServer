@@ -7,17 +7,20 @@ namespace Mousavi.Extensions.Configuration.SqlServer
     public class SqlServerConfigurationProvider : ConfigurationProvider
     {
         private readonly SqlServerConfigurationSource _source;
+        private readonly string _query;
 
         public SqlServerConfigurationProvider(SqlServerConfigurationSource source)
         {
             _source = source;
+            _query =$"select [Name], [Value] from {_source.Schema}.{_source.Table}";
+            
         }
         public override void Load()
         {
             var dic = new Dictionary<string, string>();
             using (var connection = new SqlConnection(_source.ConnectionString))
             {
-                var query = new SqlCommand("select [Name], [Value] from config.Settings", connection);
+                var query = new SqlCommand(_query, connection);
 
                 query.Connection.Open();
 
