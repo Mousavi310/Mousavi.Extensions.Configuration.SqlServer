@@ -17,7 +17,7 @@ namespace Mousavi.Extensions.Configuration.SqlServer
             var dic = new Dictionary<string, string>();
             using (var connection = new SqlConnection(_source.ConnectionString))
             {
-                var query = new SqlCommand("select [Name], [Value] from dbo.", connection);
+                var query = new SqlCommand("select [Name], [Value] from config.Settings", connection);
 
                 query.Connection.Open();
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.Extensions.Configuration;
 
 namespace Mousavi.Extensions.Configuration.SqlServer.Samples
 {
@@ -6,7 +7,15 @@ namespace Mousavi.Extensions.Configuration.SqlServer.Samples
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var configuration = new ConfigurationBuilder()
+                .AddSqlServer("Server=localhost;Database=Example;User Id=sa;Password=your(#SecurePassword!123)")
+                .Build();
+
+            foreach (var config in configuration.AsEnumerable())
+            {
+                Console.Write($"Key: {config.Key}, Value: {config.Value}");
+            }
+
         }
     }
 }
