@@ -14,10 +14,10 @@ namespace Mousavi.Extensions.Configuration.SqlServer
         public SqlServerPeriodicalWatcher(SqlServerConfigurationSource source)
         {
             _source = source;
-            _timer = new Timer(Check, null, TimeSpan.Zero, TimeSpan.FromSeconds(5));
+            _timer = new Timer(Change, null, TimeSpan.Zero, TimeSpan.FromSeconds(5));
         }
 
-        private void Check(object state)
+        private void Change(object state)
         {
             _cancellationTokenSource?.Cancel();
         }
