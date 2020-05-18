@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mousavi.Extensions.Configur
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{6579DA59-254D-4195-8846-2F089EB8739D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mousavi.Extensions.Configuration.SqlServer.Samples", "src\Samples\Mousavi.Extensions.Configuration.SqlServer.Samples\Mousavi.Extensions.Configuration.SqlServer.Samples.csproj", "{3AE9A32C-64DE-4169-BBA4-58554763FA6D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleSample", "src\Samples\Mousavi.Extensions.Configuration.SqlServer.Samples\ConsoleSample.csproj", "{3AE9A32C-64DE-4169-BBA4-58554763FA6D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreSample", "src\Samples\Mousavi.Extensions.Configuration.SqlServer.AspNetCoreSample\AspNetCoreSample.csproj", "{D4837037-1CD8-4EEA-9152-A8ECE272DFA6}"
 EndProject

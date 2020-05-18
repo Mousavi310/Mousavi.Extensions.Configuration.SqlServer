@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Threading;
 using Microsoft.Extensions.Configuration;
+using Mousavi.Extensions.Configuration.SqlServer;
 
-namespace Mousavi.Extensions.Configuration.SqlServer.Samples
+namespace ConsoleSample
 {
     class Program
     {
