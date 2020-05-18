@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{6579
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mousavi.Extensions.Configuration.SqlServer.Samples", "src\Samples\Mousavi.Extensions.Configuration.SqlServer.Samples\Mousavi.Extensions.Configuration.SqlServer.Samples.csproj", "{3AE9A32C-64DE-4169-BBA4-58554763FA6D}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreSample", "src\Samples\Mousavi.Extensions.Configuration.SqlServer.AspNetCoreSample\AspNetCoreSample.csproj", "{D4837037-1CD8-4EEA-9152-A8ECE272DFA6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,18 @@ Global
 		{3AE9A32C-64DE-4169-BBA4-58554763FA6D}.Release|x64.Build.0 = Release|Any CPU
 		{3AE9A32C-64DE-4169-BBA4-58554763FA6D}.Release|x86.ActiveCfg = Release|Any CPU
 		{3AE9A32C-64DE-4169-BBA4-58554763FA6D}.Release|x86.Build.0 = Release|Any CPU
+		{D4837037-1CD8-4EEA-9152-A8ECE272DFA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4837037-1CD8-4EEA-9152-A8ECE272DFA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4837037-1CD8-4EEA-9152-A8ECE272DFA6}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D4837037-1CD8-4EEA-9152-A8ECE272DFA6}.Debug|x64.Build.0 = Debug|Any CPU
+		{D4837037-1CD8-4EEA-9152-A8ECE272DFA6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D4837037-1CD8-4EEA-9152-A8ECE272DFA6}.Debug|x86.Build.0 = Debug|Any CPU
+		{D4837037-1CD8-4EEA-9152-A8ECE272DFA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4837037-1CD8-4EEA-9152-A8ECE272DFA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4837037-1CD8-4EEA-9152-A8ECE272DFA6}.Release|x64.ActiveCfg = Release|Any CPU
+		{D4837037-1CD8-4EEA-9152-A8ECE272DFA6}.Release|x64.Build.0 = Release|Any CPU
+		{D4837037-1CD8-4EEA-9152-A8ECE272DFA6}.Release|x86.ActiveCfg = Release|Any CPU
+		{D4837037-1CD8-4EEA-9152-A8ECE272DFA6}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +67,7 @@ Global
 		{1D47C667-9779-41F3-8D51-84DF0B1FA255} = {F736A6FB-19EB-40D9-A08D-344DD443C10F}
 		{6579DA59-254D-4195-8846-2F089EB8739D} = {F736A6FB-19EB-40D9-A08D-344DD443C10F}
 		{3AE9A32C-64DE-4169-BBA4-58554763FA6D} = {6579DA59-254D-4195-8846-2F089EB8739D}
+		{D4837037-1CD8-4EEA-9152-A8ECE272DFA6} = {6579DA59-254D-4195-8846-2F089EB8739D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B0B6DBA8-3FD2-4CC6-A22E-520EE5826EA0}
