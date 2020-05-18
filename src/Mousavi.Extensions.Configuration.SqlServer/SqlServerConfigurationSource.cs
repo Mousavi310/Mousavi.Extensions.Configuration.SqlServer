@@ -10,8 +10,11 @@ namespace Mousavi.Extensions.Configuration.SqlServer
         public string ConnectionString { get; set; }
         public string Schema { get; set; } = "config";
         public string Table { get; set; } = "Settings";
+        public SqlServerWatcher SqlServerWatcher { get; private set; } 
+
         public IConfigurationProvider Build(IConfigurationBuilder builder)
         {
+            SqlServerWatcher = new SqlServerWatcher(this);
             return new SqlServerConfigurationProvider(this);
         }
     }
