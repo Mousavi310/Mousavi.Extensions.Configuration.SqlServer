@@ -4,11 +4,11 @@ using Microsoft.Extensions.Primitives;
 
 namespace Mousavi.Extensions.Configuration.SqlServer
 {
-    public class SqlServerPeriodicalWatcher
+    public class SqlServerPeriodicalWatcher : IDisposable
     {
         private readonly SqlServerConfigurationSource _source;
         private IChangeToken _changeToken;
-        private Timer _timer;
+        private readonly Timer _timer;
         private CancellationTokenSource _cancellationTokenSource;
 
         public SqlServerPeriodicalWatcher(SqlServerConfigurationSource source)
@@ -28,6 +28,12 @@ namespace Mousavi.Extensions.Configuration.SqlServer
             _changeToken =  new CancellationChangeToken(_cancellationTokenSource.Token);
 
             return _changeToken;
+        }
+
+        public void Dispose()
+        {
+            _timer?.Dispose();
+            _cancellationTokenSource?.Dispose();
         }
     }
 }
