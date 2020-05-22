@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Globalization;
 
 namespace Mousavi.Extensions.Configuration.SqlServer
 {
     public class SqlServerConfigurationSourceBuilder : ISqlServerConfigurationSourceBuilder
     {
         public string ConnectionString { get; private set; }
+        public string Table { get; private set; }
         public string KeyColumn { get; private set; }
         public string ValueColumn { get; private set; }
         public string Schema { get; private set; }
@@ -19,6 +21,18 @@ namespace Mousavi.Extensions.Configuration.SqlServer
             }
 
             ConnectionString = connectionString;
+
+            return this;
+        }
+
+        public ISqlServerConfigurationSourceBuilder WithTable(string table)
+        {
+            if (string.IsNullOrWhiteSpace(table))
+            {
+                throw new ArgumentNullException($"Table could not be null or empty!");
+            }
+
+            Table = table;
 
             return this;
         }
@@ -66,6 +80,9 @@ namespace Mousavi.Extensions.Configuration.SqlServer
         public SqlServerConfigurationSource Build()
         {
             var instance = new SqlServerConfigurationSource {ConnectionString = ConnectionString};
+
+            if (Table != null)
+                instance.Table = Table;
 
             if (KeyColumn != null)
                 instance.KeyColumn = KeyColumn;

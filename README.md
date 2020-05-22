@@ -11,7 +11,7 @@ This repository helps you to read your configuration from a SQL Server database.
                 })
                 .ConfigureAppConfiguration((context, builder) =>
                     {
-                        //Add this
+                        //Add this 
                         builder.AddSqlServer(
                             "Server=localhost;Database=Example;User Id=sa;Password=your(#SecurePassword!123)");
                     });
@@ -25,4 +25,36 @@ var configuration1 = new ConfigurationBuilder()
                 .Build();
 ```
 
+You can choose the name of `table`, `schema`, `key column`, `value column`:
+
+``` csharp
+builder.AddSqlServer(
+                sqlBuilder => sqlBuilder
+                    .UseConnectionString(
+                        "Server=localhost;Database=Example;User Id=sa;Password=your(#SecurePassword!123)")
+                    .WithSchema("dbo")
+                    .WithKeyColumn("[Key]")
+                    .WithValueColumn("[Value]"));
+```
+
+## Refresh Configuration
+If you want refresh configuration data, you can specify refresh interval:
+
+``` csharp
+builder.AddSqlServer(
+                "Server=localhost;Database=Example;User Id=sa;Password=your(#SecurePassword!123)",
+                TimeSpan.FromSeconds(5));
+```
+
+or 
+
+``` csharp
+builder.AddSqlServer(
+                sqlBuilder => sqlBuilder
+                    .UseConnectionString(
+                        "Server=localhost;Database=Example;User Id=sa;Password=your(#SecurePassword!123)")
+                    .EnablePeriodicalAutoRefresh(TimeSpan.FromSeconds(5)));
+```
+
+Using the above configuration, the provider reload configuration from the database every 5 seconds.
 You can see the samples directory for more information.

@@ -5,7 +5,7 @@ namespace Mousavi.Extensions.Configuration.SqlServer
     public class SqlServerConfigurationSource : IConfigurationSource
     {
         public string ConnectionString { get; set; }
-        public string Schema { get; set; } = "config";
+        public string Schema { get; set; } = "dbo";
         public string Table { get; set; } = "Settings";
         public string KeyColumn { get; set; } = "[Key]";
         public string ValueColumn { get; set; } = "[Value]";
