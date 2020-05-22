@@ -16,7 +16,7 @@ namespace Mousavi.Extensions.Configuration.SqlServer
         public SqlServerConfigurationProvider(SqlServerConfigurationSource source)
         {
             _source = source;
-            _query =$"select [Name], [Value] from {_source.Schema}.{_source.Table}";
+            _query =$"select {_source.KeyColumn}, {_source.ValueColumn} from {_source.Schema}.{_source.Table}";
 
             //Todo: Check reload is enabled
 

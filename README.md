@@ -25,4 +25,4 @@ var configuration1 = new ConfigurationBuilder()
                 .Build();
 ```
 
-You can see samples directory for more information.
+You can see the samples directory for more information.
