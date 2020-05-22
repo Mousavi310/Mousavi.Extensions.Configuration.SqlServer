@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Primitives;
@@ -50,6 +49,7 @@ namespace Mousavi.Extensions.Configuration.SqlServer
         public void Dispose()
         {
             _changeTokenRegistration?.Dispose();
+            _source.SqlServerWatcher?.Dispose();
         }
     }
 }

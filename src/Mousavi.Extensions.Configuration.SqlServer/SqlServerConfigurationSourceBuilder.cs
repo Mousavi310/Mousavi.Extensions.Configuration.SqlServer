@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Mousavi.Extensions.Configuration.SqlServer
 {
@@ -10,29 +8,48 @@ namespace Mousavi.Extensions.Configuration.SqlServer
         public string KeyColumn { get; private set; }
         public string ValueColumn { get; private set; }
         public string Schema { get; private set; }
-        public TimeSpan? PeriodicalRefreshTimeSpan { get; set; }
+        public TimeSpan? PeriodicalRefreshTimeSpan { get; private set; }
 
 
         public ISqlServerConfigurationSourceBuilder UseConnectionString(string connectionString)
         {
+            if (string.IsNullOrWhiteSpace(connectionString))
+            {
+                throw new ArgumentNullException($"Connection string could not be null or empty!");
+            }
+
             ConnectionString = connectionString;
+
             return this;
         }
 
         public ISqlServerConfigurationSourceBuilder WithKeyColumn(string keyColumn)
         {
+            if (string.IsNullOrWhiteSpace(keyColumn))
+            {
+                throw new ArgumentNullException($"Key column could not be null or empty!");
+            }
             KeyColumn = keyColumn;
             return this;
         }
 
         public ISqlServerConfigurationSourceBuilder WithValueColumn(string valueColumn)
         {
+            if (string.IsNullOrWhiteSpace(valueColumn))
+            {
+                throw new ArgumentNullException($"Value column could not be null or empty!");
+            }
             ValueColumn = valueColumn;
             return this;
         }
 
         public ISqlServerConfigurationSourceBuilder WithSchema(string schema)
         {
+            if (string.IsNullOrWhiteSpace(schema))
+            {
+                throw new ArgumentNullException($"Schema could not be null or empty!");
+            }
+
             Schema = schema;
             return this;
         }
@@ -48,14 +65,7 @@ namespace Mousavi.Extensions.Configuration.SqlServer
 
         public SqlServerConfigurationSource Build()
         {
-            var instance = new SqlServerConfigurationSource();
-
-            if (string.IsNullOrWhiteSpace(ConnectionString))
-            {
-                throw new Exception($"Connection string could not be null or empty!");
-            }
-            
-            instance.ConnectionString = ConnectionString;
+            var instance = new SqlServerConfigurationSource {ConnectionString = ConnectionString};
 
             if (KeyColumn != null)
                 instance.KeyColumn = KeyColumn;
