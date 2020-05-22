@@ -7,13 +7,27 @@ namespace Mousavi.Extensions.Configuration.SqlServer
     {
         public static IConfigurationBuilder AddSqlServer(this IConfigurationBuilder builder, string connectionString)
         {
-            return builder.AddSqlServer(s => { s.ConnectionString = connectionString; });
+            return builder.AddSqlServer(sqlBuilder => sqlBuilder.UseConnectionString(connectionString));
         }
 
-        public static IConfigurationBuilder AddSqlServer(this IConfigurationBuilder builder,
-            Action<SqlServerConfigurationSource> configureSource)
+        public static IConfigurationBuilder AddSqlServer(this IConfigurationBuilder builder, 
+            string connectionString, 
+            TimeSpan periodicalRefreshInterval)
         {
-            return builder.Add(configureSource);
+            return builder.AddSqlServer(sqlBuilder => sqlBuilder
+                .UseConnectionString(connectionString)
+                .EnablePeriodicalAutoRefresh(periodicalRefreshInterval)
+            );
+        }
+
+
+        public static IConfigurationBuilder AddSqlServer(this IConfigurationBuilder builder,
+            Action<ISqlServerConfigurationSourceBuilder> sqlBuilderAction)
+        {
+            var sqlBuilder = new SqlServerConfigurationSourceBuilder();
+            sqlBuilderAction(sqlBuilder);
+            var source = sqlBuilder.Build();
+            return builder.Add(source);
         }
     }
 }

@@ -4,17 +4,17 @@ using Microsoft.Extensions.Primitives;
 
 namespace Mousavi.Extensions.Configuration.SqlServer
 {
-    public class SqlServerPeriodicalWatcher : IDisposable
+    internal class SqlServerPeriodicalWatcher : ISqlServerWatcher
     {
-        private readonly SqlServerConfigurationSource _source;
+        private readonly TimeSpan _refreshInterval;
         private IChangeToken _changeToken;
         private readonly Timer _timer;
         private CancellationTokenSource _cancellationTokenSource;
 
-        public SqlServerPeriodicalWatcher(SqlServerConfigurationSource source)
+        public SqlServerPeriodicalWatcher(TimeSpan refreshInterval)
         {
-            _source = source;
-            _timer = new Timer(Change, null, TimeSpan.Zero, TimeSpan.FromSeconds(5));
+            _refreshInterval = refreshInterval;
+            _timer = new Timer(Change, null, TimeSpan.Zero, _refreshInterval);
         }
 
         private void Change(object state)

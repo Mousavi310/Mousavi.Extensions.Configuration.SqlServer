@@ -18,16 +18,16 @@ namespace Mousavi.Extensions.Configuration.SqlServer
             _source = source;
             _query =$"select {_source.KeyColumn}, {_source.ValueColumn} from {_source.Schema}.{_source.Table}";
 
-            //Todo: Check reload is enabled
-
-            _changeTokenRegistration = ChangeToken.OnChange(
-                () => _source.SqlServerWatcher.Watch(), 
-                Load
-            );
+            if (_source.SqlServerWatcher != null)
+            {
+                _changeTokenRegistration = ChangeToken.OnChange(
+                    () => _source.SqlServerWatcher.Watch(),
+                    Load
+                );
+            }
         }
         public override void Load()
         {
-            //Console.WriteLine($"In load {DateTime.Now}");
             var dic = new Dictionary<string, string>();
             using (var connection = new SqlConnection(_source.ConnectionString))
             {

@@ -12,11 +12,10 @@ namespace Mousavi.Extensions.Configuration.SqlServer
         public string Table { get; set; } = "Settings";
         public string KeyColumn { get; set; } = "[Key]";
         public string ValueColumn { get; set; } = "[Value]";
-        public SqlServerPeriodicalWatcher SqlServerWatcher { get; private set; } 
+        internal ISqlServerWatcher SqlServerWatcher { get; set; } 
 
         public IConfigurationProvider Build(IConfigurationBuilder builder)
         {
-            SqlServerWatcher = new SqlServerPeriodicalWatcher(this);
             return new SqlServerConfigurationProvider(this);
         }
     }
