@@ -1,7 +1,11 @@
 # Mousavi.Extensions.Configuration.SqlServer
 
-This repository helps you to read your configuration from a SQL Server database. To add the provider in your ASP.NET Core application:
+This repository helps you to read your configuration from a SQL Server database. To add the provider in your ASP.NET Core application. First install the NuGet:
 
+``` bash
+dotnet add package Mousavi.Extensions.Configuration.SqlServer --version 0.3.4-g3467e37824
+```
+And then configure the provider:
 ``` csharp
  public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
