@@ -4,7 +4,12 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <Authors>Morteza Mousavi</Authors>
     <PackageDescription>A SQL Server provider for .NET configuration.</PackageDescription>
-    <ProjectUrl>https://github.com/Mousavi310/Mousavi.Extensions.Configuration.SqlServer</ProjectUrl>
+    <PackageProjectUrl>https://github.com/Mousavi310/Mousavi.Extensions.Configuration.SqlServer</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/Mousavi310/Mousavi.Extensions.Configuration.SqlServer</RepositoryUrl>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <Summary>A SQL Server provider for .NET configuration.</Summary>
+    <Description>A SQL Server provider for .NET configuration.</Description>
   </PropertyGroup>
 
   <ItemGroup>
