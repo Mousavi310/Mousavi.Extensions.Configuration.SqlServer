@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Morteza Mousavi</Authors>
+    <PackageDescription>A SQL Server provider for .NET configuration.</PackageDescription>
   </PropertyGroup>
 
   <ItemGroup>
